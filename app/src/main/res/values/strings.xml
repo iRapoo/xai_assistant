@@ -4,7 +4,7 @@
 
     //Текст меню
     <string name="title_home">Главная</string>
-    <string name="title_create">Создать</string>
+    <string name="title_create">Опубликовать</string>
     <string name="title_setting">Настройки</string>
 
 </resources>
