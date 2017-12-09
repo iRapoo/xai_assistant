@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "393019104143",
+    "project_id": "xai-assistant"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393019104143:android:93edef2334a79ef3",
+        "android_client_info": {
+          "package_name": "xyz.quenix.xai_assistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393019104143-kd025e5c8slfepectdid7vtk5q1t4np6.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "393019104143-21lq9carrsaefs3dqrl4oqf0smnd5ugm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "xyz.quenix.xai_assistant",
+            "certificate_hash": "ef2f2100271f5c8ae9a97d190c736b29d1ff90d6"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIwaHW-UbT8L87oc5y8wYHeceqv9Xk_Mw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

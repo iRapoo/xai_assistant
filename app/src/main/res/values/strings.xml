@@ -7,4 +7,9 @@
     <string name="title_create">Опубликовать</string>
     <string name="title_setting">Настройки</string>
 
+    <string name="title_activity_login">Sign in</string>
+    <string name="error_login_failed">Ошибка авторизации!</string>
+
+    <string name="server_client_id">393019104143-kd025e5c8slfepectdid7vtk5q1t4np6.apps.googleusercontent.com</string>
+
 </resources>

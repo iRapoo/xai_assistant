@@ -1,5 +1,7 @@
 package xyz.quenix.xai_assistant
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -57,6 +59,9 @@ class ControlActivity : AppCompatActivity() {
 
         val fragment = HomeFragment.Companion.newInstance()
         addFragment(fragment)
+
+        val intent = Intent(this, AuthActivity::class.java)
+        startActivity(intent)
 
     }
 }
