@@ -1,15 +1,18 @@
 <resources>
+
     //Название приложения
-    <string name="app_name">Ассистент</string>
+    <string name="app_name">НАУ \"ХАИ\" Ассистент</string>
 
     //Текст меню
     <string name="title_home">Главная</string>
     <string name="title_create">Опубликовать</string>
     <string name="title_setting">Настройки</string>
 
-    <string name="title_activity_login">Sign in</string>
+    //Высплывающие надписи
+    <string name="double_press">Нажмите снова для выхода</string>
     <string name="error_login_failed">Ошибка авторизации!</string>
 
+    //Google Client ID
     <string name="server_client_id">393019104143-kd025e5c8slfepectdid7vtk5q1t4np6.apps.googleusercontent.com</string>
 
 </resources>

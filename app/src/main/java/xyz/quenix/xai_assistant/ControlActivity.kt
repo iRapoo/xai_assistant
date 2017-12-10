@@ -1,37 +1,42 @@
 package xyz.quenix.xai_assistant
 
-import android.content.Context
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.widget.FrameLayout
+import android.widget.Toast
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+
+import xyz.quenix.xai_assistant.scripts.*
 
 class ControlActivity : AppCompatActivity() {
 
+    private var back_pressed: Long = 0
     private var content: FrameLayout? = null
+    private var fragment: Fragment? = null
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
 
-                val fragment = HomeFragment.Companion.newInstance()
-                addFragment(fragment)
+                fragment = HomeFragment.Companion.newInstance()
+                addFragment(fragment as HomeFragment)
 
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_create -> {
 
-                val fragment = CreateFragment()
-                addFragment(fragment)
+                fragment = CreateFragment()
+                addFragment(fragment as CreateFragment)
 
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_setting -> {
 
-                val fragment = SettingFragment()
-                addFragment(fragment)
+                fragment = SettingFragment()
+                addFragment(fragment as SettingFragment)
 
                 return@OnNavigationItemSelectedListener true
             }
@@ -39,12 +44,13 @@ class ControlActivity : AppCompatActivity() {
         false
     }
 
+    @SuppressLint("PrivateResource")
     private fun addFragment(fragment: Fragment) {
         supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.design_bottom_sheet_slide_in, R.anim.design_bottom_sheet_slide_out)
-                .replace(R.id.content, fragment, fragment.javaClass.getSimpleName())
-                .addToBackStack(fragment.javaClass.getSimpleName())
+                .replace(R.id.content, fragment, fragment.javaClass.simpleName)
+                .addToBackStack(fragment.javaClass.simpleName)
                 .commit()
     }
 
@@ -52,16 +58,34 @@ class ControlActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_control)
 
-        content = findViewById(R.id.content) as FrameLayout
+        val AuthIntent = getIntent()
+        account = AuthIntent.extras.getParcelable("account")
 
-        val navigation = findViewById(R.id.navigation) as BottomNavigationView
+        content = findViewById(R.id.content)
+
+        //Windows.alert(this, "", account?.displayName.toString())
+
+        val navigation = findViewById<BottomNavigationView>(R.id.navigation)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         val fragment = HomeFragment.Companion.newInstance()
         addFragment(fragment)
 
-        val intent = Intent(this, AuthActivity::class.java)
-        startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        if (back_pressed + 2000 > System.currentTimeMillis()) {
+            finish()
+            super.onBackPressed()
+        }else
+            Toast.makeText(baseContext, resources.getString(R.string.double_press), Toast.LENGTH_SHORT).show()
+
+        back_pressed = System.currentTimeMillis()
 
     }
+
+    companion object {
+        var account: GoogleSignInAccount? = null
+    }
+
 }
