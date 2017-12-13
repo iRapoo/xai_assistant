@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_create.view.*
 
 class CreateFragment : Fragment() {
 
@@ -14,8 +13,7 @@ class CreateFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var rootView = inflater!!.inflate(R.layout.fragment_create, container, false)
-
+        val rootView = inflater.inflate(R.layout.fragment_create, container, false)
 
 
         return rootView

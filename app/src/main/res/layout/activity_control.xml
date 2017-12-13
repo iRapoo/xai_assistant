@@ -7,18 +7,53 @@
     android:layout_height="match_parent"
     tools:context="xyz.quenix.xai_assistant.ControlActivity">
 
-    <FrameLayout
-        android:id="@+id/content"
+
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></FrameLayout>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/main_color"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/Base.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:background="@color/cardview_light_background"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"></FrameLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

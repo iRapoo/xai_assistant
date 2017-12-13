@@ -23,7 +23,7 @@ class SettingFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater!!.inflate(R.layout.fragment_setting, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_setting, container, false)
 
         AuthImage = rootView.findViewById(R.id.AuthImage) as ImageView
         AuthName = rootView.findViewById(R.id.AuthName) as TextView

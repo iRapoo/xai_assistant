@@ -1,6 +1,7 @@
 package xyz.quenix.xai_assistant
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -9,13 +10,12 @@ import android.widget.FrameLayout
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 
-import xyz.quenix.xai_assistant.scripts.*
-
-class ControlActivity : AppCompatActivity() {
+class ControlActivity : AppCompatActivity()  {
 
     private var back_pressed: Long = 0
     private var content: FrameLayout? = null
     private var fragment: Fragment? = null
+    private var navigation: BottomNavigationView? = null
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -58,18 +58,15 @@ class ControlActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_control)
 
-        val AuthIntent = getIntent()
-        account = AuthIntent.extras.getParcelable("account")
+        account = intent.extras.getParcelable("account")
 
         content = findViewById(R.id.content)
 
-        //Windows.alert(this, "", account?.displayName.toString())
+        navigation = findViewById(R.id.navigation)
 
-        val navigation = findViewById<BottomNavigationView>(R.id.navigation)
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        navigation?.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-        val fragment = HomeFragment.Companion.newInstance()
-        addFragment(fragment)
+        addFragment(HomeFragment())
 
     }
 
